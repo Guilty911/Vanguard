@@ -288,7 +288,7 @@ void jacobian_xy_analytic(float theta[3], float J[2][3]) {
 void target_position(float target[2]) {
   float distance_m = ultrasonic();
   target[0]        = distance_m  ;
-  target[1]        = 0.15        ;
+  target[1]        = 0.102        ;
 }
 
 // Resolved-rate control loop
