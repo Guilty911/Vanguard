@@ -46,6 +46,7 @@ AccelStepper stepper3(AccelStepper::DRIVER, 34, 35);  // STEP=34, DIR=35
 
 // Link lengths
 float L[3] = {0.25, 0.15, 0.15};
+float ultrasonic_offset = 0.115;
 
 // Control state
 bool control_done = false;
@@ -241,7 +242,7 @@ float ultrasonic() {
   duration_us = pulseIn(echoPin, HIGH);
 
   // calculate the distance (approx)
-  distance_m = 0.017 * duration_us / 100;
+  distance_m = 0.017 * duration_us / 100 + ultrasonic_offset;
 
   Serial.print("distance: ");
   Serial.print(distance_m)  ;
